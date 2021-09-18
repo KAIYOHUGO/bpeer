@@ -7,6 +7,15 @@ class Room {
     connect?: Peer.DataConnection;
     onclose?: () => void;
     onopen?: () => void;
+
+    close(){
+        this.stream?.getTracks().forEach((v) => {
+            v.stop();
+        });
+        this.peer.destroy()
+        this.video.srcObject = null;
+    }
+
     dail(id: string) {
         this.connect = this.peer.connect(id);
         this.connect.on("data", (data: string) => {

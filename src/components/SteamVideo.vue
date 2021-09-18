@@ -1,10 +1,12 @@
 <template>
-    <div class="flex items-center w-full h-full">
-        <video
-            id="stream"
-            autoplay
-            class="bg-gray-700 rounded-lg w-full h-full pointer-events-none"
-        ></video>
+    <div class="absolute right-0 top-0 flex w-full h-full justify-center p-16">
+        <div>
+            <video
+                id="stream"
+                autoplay
+                class="bg-gray-700 rounded-lg h-full pointer-events-none"
+            ></video>
+        </div>
     </div>
 </template>
 

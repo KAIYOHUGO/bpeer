@@ -1,18 +1,20 @@
 <template>
-    <h1 class="text-lg">
-        Room ID:
-        <span>
-            <input
-                type="text"
-                :value="id"
-                disabled
-                class="border-2 border-gray-900 rounded w-28"
-            />
-            <rounded-button :data-clipboard-text="id" class="copy">
-                Copy
-            </rounded-button>
-        </span>
-    </h1>
+    <nav-bar class="fixed top-0 w-full">
+        <h1 class="text-lg">
+            Room ID:
+            <span>
+                <input
+                    type="text"
+                    :value="id"
+                    disabled
+                    class="border-2 border-gray-900 rounded w-28"
+                />
+                <rounded-button :data-clipboard-text="id" class="copy">
+                    Copy
+                </rounded-button>
+            </span>
+        </h1>
+    </nav-bar>
     <steam-video></steam-video>
     <div class="fixed bottom-0 w-full">
         <nav-bar>
