@@ -3,7 +3,7 @@
 (window as any).parcelRequire = {};
 
 import { createApp } from "vue";
-import App from "./App.vue";
+import App from "@/App.vue";
 import "@/sass/index.sass";
 import { store } from "@/store";
 import { router } from "@/router";
