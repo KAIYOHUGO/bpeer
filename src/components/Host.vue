@@ -18,14 +18,13 @@
     <steam-video></steam-video>
     <div class="fixed bottom-0 w-full">
         <nav-bar>
-            <rounded-button>Close</rounded-button>
+            <rounded-button @click="close()">Close</rounded-button>
             <rounded-button @click="share()">Share</rounded-button>
         </nav-bar>
     </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useRoute } from "vue-router";
 import SteamVideo from "@/components/SteamVideo.vue";
 import NavBar from "@/components/NavBar.vue";
 import RoundedButton from "@/components/RoundedButton.vue";
@@ -46,6 +45,10 @@ export default defineComponent({
     methods: {
         share() {
             peer.shareScreen();
+        },
+        close() {
+            peer.close();
+            this.$router.push("/");
         },
     },
     computed: {

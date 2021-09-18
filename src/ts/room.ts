@@ -8,12 +8,11 @@ class Room {
     onclose?: () => void;
     onopen?: () => void;
 
-    close(){
+    close() {
         this.stream?.getTracks().forEach((v) => {
             v.stop();
         });
-        this.peer.destroy()
-        this.video.srcObject = null;
+        this.peer.destroy();
     }
 
     dail(id: string) {
@@ -44,7 +43,7 @@ class Room {
     }
     constructor(video: HTMLVideoElement) {
         this.video = video;
-        this.peer = new Peer();
+        this.peer = new Peer(undefined);
         this.peer.on("call", (mdc) => {
             mdc.answer();
             mdc.on("stream", (stm) => {
