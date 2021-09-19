@@ -17,3 +17,14 @@ export default defineComponent({
     name: "steam-video",
 });
 </script>
+<style lang="sass" scoped>
+video
+//     animation: loading 1s linear infinite both
+
+// @keyframes loading {
+//     from
+//         background-position-x: 0
+//     to
+//         background-position-x: 100%
+// }
+</style>

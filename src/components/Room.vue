@@ -1,29 +1,33 @@
 <template>
-    <nav-bar class="fixed top-0 w-full">
-        <h1 class="text-lg">
-            Room ID:
-            <span>
-                <input
-                    type="text"
-                    :value="id"
-                    disabled
-                    class="border-2 border-gray-900 rounded w-28"
-                />
-                <rounded-button :data-clipboard-text="id" class="copy">
-                    Copy
-                </rounded-button>
-            </span>
-        </h1>
-    </nav-bar>
-    <steam-video @dblclick="fullscreen()"></steam-video>
-    <div class="fixed bottom-0 w-full">
-        <nav-bar>
-            <rounded-button @click="close()">Close</rounded-button>
-            <rounded-button @click="connect()" :disabled="!canconnect">
-                Connect
-            </rounded-button>
-            <rounded-button @click="fullscreen()">Fullscreen</rounded-button>
+    <div class="h-full w-full">
+        <nav-bar class="fixed top-0 w-full">
+            <h1 class="text-lg">
+                Room ID:
+                <span>
+                    <input
+                        type="text"
+                        :value="id"
+                        disabled
+                        class="border-2 border-gray-900 rounded w-28"
+                    />
+                    <rounded-button :data-clipboard-text="id" class="copy">
+                        Copy
+                    </rounded-button>
+                </span>
+            </h1>
         </nav-bar>
+        <steam-video @dblclick="fullscreen()"></steam-video>
+        <div class="fixed bottom-0 w-full">
+            <nav-bar>
+                <rounded-button @click="close()">Close</rounded-button>
+                <rounded-button @click="connect()" :disabled="!canconnect">
+                    Connect
+                </rounded-button>
+                <rounded-button @click="fullscreen()"
+                    >Fullscreen</rounded-button
+                >
+            </nav-bar>
+        </div>
     </div>
 </template>
 
@@ -47,7 +51,6 @@ export default defineComponent({
         );
         peer.onopen = () => {
             this.canconnect = true;
-            this.connect();
         };
         peer.onclose = () => {
             this.canconnect = true;

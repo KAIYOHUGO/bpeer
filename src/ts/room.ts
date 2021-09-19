@@ -16,7 +16,7 @@ class Room {
     }
 
     dail(id: string) {
-        this.connect = this.peer.connect(id);
+        this.connect = this.peer.connect(import.meta.env.VITE_PEER_PREFIX + id);
         this.connect.on("data", (data: string) => {
             switch (data) {
                 case "close":
@@ -43,7 +43,7 @@ class Room {
     }
     constructor(video: HTMLVideoElement) {
         this.video = video;
-        this.peer = new Peer(undefined);
+        this.peer = new Peer();
         this.peer.on("call", (mdc) => {
             mdc.answer();
             mdc.on("stream", (stm) => {

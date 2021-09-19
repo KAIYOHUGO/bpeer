@@ -51,7 +51,7 @@ class Host {
     }
     constructor(id: string, video: HTMLVideoElement) {
         this.video = video;
-        this.peer = new Peer(id);
+        this.peer = new Peer(import.meta.env.VITE_PEER_PREFIX + id);
         this.peer.on("connection", (conn) => {
             this.clients.push(conn);
             if (this.stream) this.peer.call(conn.peer, this.stream);
